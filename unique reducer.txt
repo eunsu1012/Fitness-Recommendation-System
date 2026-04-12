@@ -1,0 +1,47 @@
+cat > /home/hadoop/scripts/reducer.py << 'EOF'
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import sys
+
+current_difficulty = None
+current_count = 0
+unique_exercises = set()  # Set to track unique exercises for each difficulty level
+
+# Read input line by line
+for line in sys.stdin:
+    # Strip the line of extra whitespace
+    line = line.strip()
+
+    # Skip empty lines or lines without a tab separator
+    if "\t" not in line:
+        continue
+
+    # Split the line into difficulty level, exercise ID, and count
+    try:
+        difficulty_level, exercise_id, count = line.split("\t", 2)
+        count = int(count)  # Convert count to integer
+    except ValueError:
+        continue  # Skip malformed lines
+
+    # Accumulate unique counts for the same difficulty level
+    if current_difficulty == difficulty_level:
+        if exercise_id not in unique_exercises:
+            unique_exercises.add(exercise_id)  # Add new unique exercise ID
+            current_count += count
+    else:
+        # Print the count for the previous difficulty level, if it exists
+        if current_difficulty:
+            print("%s\t%s" % (current_difficulty, current_count))
+
+        # Reset for the new difficulty level
+        current_difficulty = difficulty_level
+        current_count = count
+        unique_exercises = {exercise_id}  # Reset with the first unique exercise ID
+
+# Print the last accumulated result if there’s any
+if current_difficulty == difficulty_level:
+    print("%s\t%s" % (current_difficulty, current_count))
+
+EOF
+

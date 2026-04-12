@@ -1,0 +1,35 @@
+cat > /home/hadoop/scripts/mapper.py << 'EOF'
+#!/usr/bin/env python
+
+import sys
+import csv
+
+# Set a flag to skip the header
+first_line = True
+
+# Define the valid difficulty levels
+valid_levels = ['beginner', 'intermediate', 'expert']
+
+# Read input line by line
+for line in sys.stdin:
+    # Skip the header line
+    if first_line:
+        first_line = False
+        continue
+
+    # Use csv.reader to properly handle CSV fields, especially with embedded commas and quotes
+    reader = csv.reader([line.strip()])
+    fields = next(reader)  # This retrieves the single row (list of fields)
+
+    # Check if there are enough fields and get the difficulty level
+    if len(fields) > 6:
+        difficulty_level = fields[6]
+        exercise_id = fields[0]  # Assuming exercise ID is in the first column
+
+        # Only process rows where the difficulty level is valid
+        if difficulty_level in valid_levels:
+            # Output the key-value pair (level, exercise ID, 1)
+            print("%s\t%s\t%s" % (difficulty_level, exercise_id, 1))
+
+EOF
+
