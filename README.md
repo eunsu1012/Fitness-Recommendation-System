@@ -121,9 +121,11 @@ Fitness-Recommendation-System/
 
 ---
 
-## 👤 Author
+## 👤 Team Members
 
-Eunsu Park (Data Science Graduate Student)
+Park, Eunsoo
+Dessie, Yeabsira S
+Tsegaselassie, Wengel A
 
 ---
 
