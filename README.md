@@ -3,7 +3,6 @@
 A big data engineering project that builds an end-to-end, multi-source data platform to power personalized fitness recommendations.  
 The system integrates structured, semi-structured, and unstructured data through Kafka, Hadoop, Spark, Cassandra, and MySQL, running on a 7-container Docker network.
 
----
 
 ## 📌 Overview
 
@@ -11,7 +10,7 @@ Developed for a business case with **REVIVO Wellness Center**, whose client data
 
 This project designs a big data platform that centralizes this data, applies a data governance layer, and delivers fitness insights through an interactive dashboard based on a client's age, BMI, gender, and goals.
 
----
+
 
 ## 🎯 Objectives
 
@@ -21,7 +20,6 @@ This project designs a big data platform that centralizes this data, applies a d
 - Design a data governance layer considering privacy regulations (HIPAA)  
 - Provide an interactive dashboard for clients and trainers  
 
----
 
 ## 🧠 Key Features
 
@@ -31,7 +29,6 @@ This project designs a big data platform that centralizes this data, applies a d
 - **Data governance:** cataloging, quality checks, and single source of truth design  
 - **7-container Docker network** with shared volumes and documented, reproducible setup  
 
----
 
 ## 🗂️ Dataset
 
@@ -41,7 +38,6 @@ This project designs a big data platform that centralizes this data, applies a d
 | Semi-structured | `exercises.json` + Kafka stream | Exercise metadata and streaming event data |
 | Unstructured | [free-exercise-db](https://github.com/yuhonas/free-exercise-db) | 800+ exercises with images, target muscles, equipment, level, and instructions |
 
----
 
 ## ⚙️ Methodology
 
@@ -70,7 +66,6 @@ The platform is built through the following steps:
 5. Visualization  
    - Streamlit dashboard where users enter age, BMI, gender, and goals to get exercise insights  
 
----
 
 ## 📊 Model Evaluation
 
@@ -79,7 +74,6 @@ The platform is built through the following steps:
 - Spark ML intensity classifier evaluated on a stratified hold-out split  
 - MapReduce output validated against the full exercise dataset to confirm unique exercise counts per difficulty level  
 
----
 
 ## 🛠️ Tech Stack
 
@@ -90,11 +84,8 @@ The platform is built through the following steps:
 - **ML & Visualization:** Scikit-learn, Streamlit, Matplotlib / Seaborn  
 - **Infrastructure:** Docker (7 containers), Ubuntu VM  
 
----
 
 ## 📁 Project Structure
-
-<!-- 실제 저장소 폴더 구조에 맞게 수정하세요 -->
 
 ```
 Fitness-Recommendation-System/
@@ -109,7 +100,6 @@ Fitness-Recommendation-System/
 └── README.md
 ```
 
----
 
 ## 🚀 Results
 
@@ -119,7 +109,6 @@ Fitness-Recommendation-System/
 - Deployed a **Streamlit dashboard** returning personalized exercise insights from user inputs  
 - Resolved frequent VM crashes by documenting all installation commands and container settings, making the environment **reproducible** for the whole team  
 
----
 
 ## 📌 Limitations
 
@@ -127,7 +116,6 @@ Fitness-Recommendation-System/
 - Client data was simulated; real wearable or client records were not used  
 - Recommendations are based on exercise attributes and user profile rules, not learned from user feedback  
 
----
 
 ## 🔧 Future Work
 
@@ -135,7 +123,6 @@ Fitness-Recommendation-System/
 - Migrate to a managed cloud environment for scalability  
 - Integrate wearable device data for real-time recommendations  
 
----
 
 ## 👤 Team Members
 
@@ -145,7 +132,6 @@ Tsegaselassie, Wengel A
 
 **My role:** Cassandra schema design and data loading, Hadoop MapReduce implementation, ML modeling, and Docker container network setup
 
----
 
 ## ✔️ Summary
 
